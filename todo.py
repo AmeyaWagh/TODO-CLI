@@ -4,9 +4,6 @@ import os
 import sys
 import termcolors as tc
 
-# print(os.getcwd())
-
-
 class TODOList:
 	usage = '''
 	CLI TODO list
@@ -24,12 +21,20 @@ class TODOList:
 	def __init__(self):
 		if "TODO.md" not in os.listdir(os.getcwd()):
 			print("No TODO.md Found")
+			ip = raw_input("Do you wish to create? Y/N?")
+			if (ip=="y") or (ip=="Y"):
+				self.create_file()
 			exit()
 		self.read_file()
 		self.tasks = 0
 		self.completed_tasks = 0
 		self.remaining_tasks = 0
 		self.task_buffer = {}
+
+	def create_file(self):
+		self.todo_file = "## TODO TASKLIST\n"
+		self.write_file()
+		print "TODO.md created"
 
 	def read_file(self):
 		with open(os.path.join(os.getcwd(),"TODO.md"),'r') as fp:
@@ -82,7 +87,7 @@ class TODOList:
 	def uncheck_task(self,task_id):
 		self.parse_file()
 		task_idx = self.todo_file.index(self.task_buffer[int(task_id)])
-		print ">>",self.todo_file[task_idx]
+		# print ">>",self.todo_file[task_idx]
 		self.todo_file[task_idx] = self.todo_file[task_idx].replace("[x]","[ ]")
 		self.todo_file[task_idx] = self.todo_file[task_idx].replace("[X]","[ ]")
 		self.pretty_print()
@@ -96,7 +101,7 @@ class TODOList:
 
 	def parse_args(self):
 		sys_args = sys.argv[1:]
-		print sys_args
+		# print sys_args
 		try:	
 			if "ls" in sys_args[0]:
 				# print td.todo_file
@@ -104,10 +109,8 @@ class TODOList:
 			elif "add" in sys_args[0]:
 				td.add_task(sys_args[1])
 			elif "check"==sys_args[0]:
-				print "check"
 				td.check_task(sys_args[1])
 			elif "uncheck"==sys_args[0]:
-				print "uncheck"
 				td.uncheck_task(sys_args[1])
 			elif "remove" in sys_args[0]:
 				td.remove_task(sys_args[1])		
