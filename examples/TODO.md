@@ -8,7 +8,4 @@
 - [x]   Test with multiple voxel grid sizes.
 - [ ]   Add detection and drawing of bounding box to common.
 - [X]   Color in getBoundingBox as hex.
-- [x] mytask1
-- [x] mytask2
-- [ ] mytask3
-- [x] mytaskk [CREATED] 12.Feb 2018 22:48:32
+- [ ] mytaskk [CREATED] 12.Feb 2018 22:48:32
