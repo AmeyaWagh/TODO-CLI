@@ -2,7 +2,7 @@
 a CLI based TODO manager for projects. writes to TODO.md which makes the TODO file github friendly 
 
 
-- create alias of the todo.py file
+- create alias of the todo.py file and add it to your .bashrc or .zshrc
 eg:
 ```
   alias todo='$HOME/utilities/TODO/todo.py'
