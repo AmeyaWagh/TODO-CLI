@@ -34,10 +34,10 @@ eg:
 
 	usage
 	---------------------------------------
-	ls - 					        show TODO list
+	ls - 			show TODO list
 	add <Task message> - 	adds TASK 
-	remove <TASK ID> - 		removes TASK 
-	check <TASK ID> - 		checks TASK 
+	remove <TASK ID> - 	removes TASK 
+	check <TASK ID> - 	checks TASK 
 	uncheck <TASK ID> - 	unchecks TASK  
 	---------------------------------------
 ```
