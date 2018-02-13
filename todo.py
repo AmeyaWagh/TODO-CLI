@@ -3,6 +3,7 @@
 import os
 import sys
 import termcolors as tc
+import datetime
 
 class TODOList:
 	usage = '''
@@ -73,7 +74,7 @@ class TODOList:
 		# print self.task_buffer
 			
 	def add_task(self,task_str):
-		self.todo_file.append('- [ ] {}\n'.format(task_str))
+		self.todo_file.append('- [ ] {} [CREATED] {}\n'.format(task_str,datetime.datetime.now().strftime("%d.%b %Y %H:%M:%S")))
 		# self.todo_file.append('\n')
 		# print self.todo_file
 		self.pretty_print()	
