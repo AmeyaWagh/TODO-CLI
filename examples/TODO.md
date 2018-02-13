@@ -4,8 +4,7 @@
 - [X]   Make Python Based SVM Classifier
 - [X]   FullyConnected Classifier using Tensorflow
 - [x]   Normalize the descriptor.
-- [ ]   Send a batch of VFH vectors to classifier than individual query.
-- [ ]   Test with multiple voxel grid sizes.
+- [x]   Send a batch of VFH vectors to classifier than individual query.
+- [x]   Test with multiple voxel grid sizes.
 - [ ]   Add detection and drawing of bounding box to common.
 - [X]   Color in getBoundingBox as hex.
-

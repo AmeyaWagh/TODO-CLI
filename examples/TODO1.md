@@ -8,4 +8,3 @@
 - [ ]   Test with multiple voxel grid sizes.
 - [ ]   Add detection and drawing of bounding box to common.
 - [X]   Color in getBoundingBox as hex.
-- [ ] hello

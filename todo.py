@@ -33,10 +33,11 @@ class TODOList:
 	def read_file(self):
 		with open(os.path.join(os.getcwd(),"TODO.md"),'r') as fp:
 			self.todo_file = fp.readlines()
-		self.todo_file.pop(self.todo_file.index('\n'))	
+		if '\n' in self.todo_file: 
+			self.todo_file.pop(self.todo_file.index('\n'))	
 
 	def write_file(self):
-		with open(os.path.join(os.getcwd(),"TODO1.md"),'w') as fp:
+		with open(os.path.join(os.getcwd(),"TODO.md"),'w') as fp:
 			fp.write(''.join(self.todo_file))		
 
 	def parse_file(self):
@@ -63,32 +64,50 @@ class TODOList:
 		self.write_file()
 		# print self.task_buffer
 			
-		# print "{}HELLO{}".format(tc.OKGREEN,tc.ENDC)
 	def add_task(self,task_str):
-		self.todo_file.append('- [ ] {}'.format(task_str))
+		self.todo_file.append('- [ ] {}\n'.format(task_str))
+		# self.todo_file.append('\n')
 		# print self.todo_file
 		self.pretty_print()	
 
 	def check_task(self,task_id):
-		print self.todo_file.index(self.task_buffer[int(task_id)])
+		self.parse_file()
+		task_idx = self.todo_file.index(self.task_buffer[int(task_id)])
+		self.todo_file[task_idx] = self.todo_file[task_idx].replace("[ ]","[x]")
+		self.pretty_print()
 
 	def uncheck_task(self,task_id):
-		print self.todo_file.index(self.task_buffer[int(task_id)])
+		self.parse_file()
+		task_idx = self.todo_file.index(self.task_buffer[int(task_id)])
+		self.todo_file[task_idx] = self.todo_file[task_idx].replace("[x]","[ ]")
+		self.todo_file[task_idx] = self.todo_file[task_idx].replace("[X]","[ ]")
+		self.pretty_print()
+
+	def remove_task(self,task_id):
+		self.parse_file()
+		task_idx = self.todo_file.index(self.task_buffer[int(task_id)])
+		self.todo_file.pop(task_idx)
+		self.pretty_print()
 
 
 	def parse_args(self):
-		sys_args = sys.argv[1:]	
-		if "ls" in sys_args[0]:
-			# print td.todo_file
-			td.pretty_print()
-		elif "add" in sys_args[0]:
-			td.add_task(sys_args[1])
-		elif "check" in sys_args[0]:
-			td.check_task(sys_args[1])
-		elif "uncheck" in sys_args[0]:
-			td.uncheck_task(sys_args[1])		
-		else:
-			print td.usage
+		sys_args = sys.argv[1:]
+		try:	
+			if "ls" in sys_args[0]:
+				# print td.todo_file
+				td.pretty_print()
+			elif "add" in sys_args[0]:
+				td.add_task(sys_args[1])
+			elif "check" in sys_args[0]:
+				td.check_task(sys_args[1])
+			elif "uncheck" in sys_args[0]:
+				td.uncheck_task(sys_args[1])
+			elif "remove" in sys_args[0]:
+				td.remove_task(sys_args[1])		
+			else:
+				print td.usage
+		except Exception as e:
+			print td.usage 
 
 if __name__ == '__main__':
 	
