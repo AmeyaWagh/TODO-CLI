@@ -25,3 +25,24 @@ eg:
 	uncheck <TASK ID> - 	unchecks TASK  
 	---------------------------------------
 ```
+- goto the directory where TODO.md is saved and use todo alias.
+	- to list tasks
+	```
+	$todo ls
+	```
+	- to add a TASK
+	```
+	$todo add "create custom ROS message for classifier."
+	```
+	- to remove a TASK
+	```
+	$todo remove 5
+	```
+	- to check a TASK once it is done
+	```
+	$todo check 7
+	```
+	- to uncheck a TASK, (just in case)
+	```
+	$todo uncheck 9
+	```
