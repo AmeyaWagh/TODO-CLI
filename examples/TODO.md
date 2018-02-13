@@ -1,10 +1,13 @@
 ## TODO TASKLIST
 - [x]   Make SVM as ROS Action
-- [x]   Make SVM trainer script as ROS node
+- [ ]   Make SVM trainer script as ROS node
 - [X]   Make Python Based SVM Classifier
-- [X]   FullyConnected Classifier using Tensorflow
-- [x]   Normalize the descriptor.
+- [ ]   FullyConnected Classifier using Tensorflow
+- [ ]   Normalize the descriptor.
 - [x]   Send a batch of VFH vectors to classifier than individual query.
-- [x]   Test with multiple voxel grid sizes.
-- [ ]   Add detection and drawing of bounding box to common.
+- [ ]   Test with multiple voxel grid sizes.
+- [x]   Add detection and drawing of bounding box to common.
 - [X]   Color in getBoundingBox as hex.
+- [ ] mytask1
+- [x] mytask2
+- [ ] mytask3

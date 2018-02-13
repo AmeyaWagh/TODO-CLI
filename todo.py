@@ -13,11 +13,12 @@ class TODOList:
 
 	usage
 	--------------------------------
-	create - creates TODO.md
-	ls - show TODO list
-	add - add Task
-	check - check <TASK ID>
-	uncheck - uncheck <TASK ID>
+	create - 				creates TODO.md
+	ls - 					show TODO list
+	add <Task message> - 	adds TASK 
+	remove <TASK ID> - 		removes TASK 
+	check <TASK ID> - 		checks TASK 
+	uncheck <TASK ID> - 	unchecks TASK  
 	--------------------------------
 	'''
 	def __init__(self):
@@ -42,6 +43,8 @@ class TODOList:
 
 	def parse_file(self):
 		print_buffer = ""
+		self.tasks = 0
+		self.completed_tasks = 0
 		for line in self.todo_file:
 			if ('-' in line) and ('[' in line) and (']' in line):
 				self.tasks+=1
@@ -79,6 +82,7 @@ class TODOList:
 	def uncheck_task(self,task_id):
 		self.parse_file()
 		task_idx = self.todo_file.index(self.task_buffer[int(task_id)])
+		print ">>",self.todo_file[task_idx]
 		self.todo_file[task_idx] = self.todo_file[task_idx].replace("[x]","[ ]")
 		self.todo_file[task_idx] = self.todo_file[task_idx].replace("[X]","[ ]")
 		self.pretty_print()
@@ -92,15 +96,18 @@ class TODOList:
 
 	def parse_args(self):
 		sys_args = sys.argv[1:]
+		print sys_args
 		try:	
 			if "ls" in sys_args[0]:
 				# print td.todo_file
 				td.pretty_print()
 			elif "add" in sys_args[0]:
 				td.add_task(sys_args[1])
-			elif "check" in sys_args[0]:
+			elif "check"==sys_args[0]:
+				print "check"
 				td.check_task(sys_args[1])
-			elif "uncheck" in sys_args[0]:
+			elif "uncheck"==sys_args[0]:
+				print "uncheck"
 				td.uncheck_task(sys_args[1])
 			elif "remove" in sys_args[0]:
 				td.remove_task(sys_args[1])		
