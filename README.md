@@ -46,3 +46,7 @@ eg:
 	```
 	$todo uncheck 9
 	```
+
+- This is how the TODO.md looks on github
+
+![alt text](doc/image2.img)
