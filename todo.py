@@ -4,6 +4,7 @@ import os
 import sys
 import termcolors as tc
 import datetime
+import argparse
 
 class TODOList:
     usage = '''
@@ -122,10 +123,39 @@ class TODOList:
             else:
                 print td.usage
         except Exception as e:
-            print td.usage 
+            print td.usage
+
+    def parse_args_2(self):
+        desc = """
+        a CLI based TODO manager for projects. \n writes to TODO.md which makes the TODO file github friendly
+        """
+        parser = argparse.ArgumentParser(description=desc)
+        parser.add_argument('--ls', help='show TODO list' , action='store_true')
+        # parser.add_argument('--create', help='create TODO list', action='store_true')
+        parser.add_argument('--add', help='add TODO list',type=str)
+        parser.add_argument('--check', help='add TODO list',type=int)
+        parser.add_argument('--uncheck', help='add TODO list',type=int)
+        parser.add_argument('--remove', help='add TODO list',type=int)
+        args = parser.parse_args()
+        print(">>",args)
+        try:    
+            if args.ls:
+                self.pretty_print()
+            elif args.add is not None:
+                td.add_task(args.add)
+            elif args.check is not None:
+                td.check_task(args.check)
+            elif args.uncheck is not None:
+                td.uncheck_task(args.uncheck)
+            elif args.remove is not None:
+                td.remove_task(args.remove)     
+            else:
+                print td.usage
+        except Exception as e:
+            print td.usage
 
 if __name__ == '__main__':
     
     td = TODOList()
-    td.parse_args()
+    td.parse_args_2()
     # print sys_args
