@@ -5,7 +5,7 @@ a CLI based TODO manager for projects. writes to TODO.md which makes the TODO fi
 - create alias of the todo.py file and add it to your .bashrc or .zshrc
 eg:
 ```
-  alias todo='$HOME/utilities/TODO/todo.py'
+  alias todo='$HOME/<path to TODO>/todo.py'
 ```
 - create a todo list file TODO.md, or let todo.py automatically create it for you. Given below is a sample
 
@@ -27,25 +27,25 @@ eg:
 ```
 - goto the directory where TODO.md is saved and use todo alias.
 	- to list tasks
-	```
-	$todo ls
-	```
+```
+$todo ls
+```
 	- to add a TASK
-	```
-	$todo add "create custom ROS message for classifier."
-	```
+```
+$todo add "create custom ROS message for classifier."
+```
 	- to remove a TASK
-	```
-	$todo remove 5
-	```
+```
+$todo remove 5
+```
 	- to check a TASK once it is done
-	```
-	$todo check 7
-	```
+```
+$todo check 7
+```
 	- to uncheck a TASK, (just in case)
-	```
-	$todo uncheck 9
-	```
+```
+$todo uncheck 9
+```
 
 - This is how the TODO.md looks on github
 
