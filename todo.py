@@ -13,14 +13,7 @@ class TODOList:
     a CLI based TODO manager for projects. 
     writes to TODO.md which makes the TODO file github friendly
     
-    usage
-    -----------------------------------------
-    create -                creates TODO.md
-    ls -                    show TODO list
-    add <Task message> -    adds TASK 
-    remove <TASK ID> -      removes TASK 
-    check <TASK ID> -       checks TASK 
-    uncheck <TASK ID> -     unchecks TASK  
+    todo --help for help
     -----------------------------------------
     '''.format(tc.HEADER,tc.ENDC)
     def __init__(self):
@@ -67,7 +60,7 @@ class TODOList:
         return print_buffer
         
     def pretty_print(self):
-        os.system("clear")
+        os.system('cls' if os.name == 'nt' else 'clear')
         print "-"*80,"\n\t{}TODO LIST{}\n".format(tc.BOLD,tc.ENDC),"-"*80
         print self.parse_file()
         print "-"*80
